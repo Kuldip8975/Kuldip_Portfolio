@@ -80,7 +80,7 @@ export default function Resume() {
           >
             <strong style={{ color: "#00b4ff" }}>Professional Summary:</strong>
             <p style={{ marginTop: 6, color: "#ccc" }}>
-              My name is Kuldip Mahale. I am currently pursuing a B.Tech in Artificial Intelligence and Machine Learning at R.C. Patel Institute of Technology, with a CGPA of 827. Before this, I completed my Post Graduate Diploma in Computer Engineering with 86.71%. My academic journey has given me a strong foundation in programming, data structures, AI, and machine learning.
+              My name is Kuldip Mahale. I am currently pursuing a B.Tech in Artificial Intelligence and Machine Learning at R.C. Patel Institute of Technology, with a CGPA of 8.27 Before this, I completed my Post Graduate Diploma in Computer Engineering with 86.71%. My academic journey has given me a strong foundation in programming, data structures, AI, and machine learning.
             </p>
           </motion.div>
         </motion.div>
