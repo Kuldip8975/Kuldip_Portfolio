@@ -3,6 +3,26 @@ import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
+ {
+  title: '🤖 AgrisetAI – AI-Powered Smart Agriculture Ecosystem',
+  duration: '2025 – Present',
+  status: '🟢 Production Live | Actively Maintained',
+  desc: 'Designed and deployed a production-grade AI-powered agricultural platform integrating a farmer-to-farmer equipment marketplace, CNN-based crop diagnostics, Razorpay-secured payments, digital wallet analytics, real-time market price monitoring, and multi-language accessibility within a unified full-stack architecture.',
+  ss: '/mentalhealth1.jpg',
+  tech: [
+    'Python (Flask)',
+    'MySQL',
+    'JavaScript',
+    'TensorFlow/Keras',
+    'REST APIs',
+    'Razorpay',
+    'Railway',
+    'Vercel'
+  ],
+  live: 'https://shetimitra-frontend.vercel.app/',
+  code: 'https://github.com/Kuldip8975/shetimitra-frontend'
+},
+  
   {
   title: '🧠 AbhyasX - Smart Learning Ecosystem',
   desc: 'Your ultimate learning platform designed specifically for engineering students. Access a vast collection of handwritten notes and top-quality study materials, both free and paid, to boost your academic journey.',
@@ -124,26 +144,33 @@ export default function Projects() {
               </motion.div>
 
               <div style={{ marginTop: 12 }}>
-                <h3 style={{ fontSize: 18, color: '#0ea5e9', marginBottom: 6 }}>{p.title}</h3>
-                <p style={{ fontSize: 14, color: '#bbb', marginBottom: 8, lineHeight: 1.6 }}>{p.desc}</p>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        background: 'rgba(0,255,255,0.05)',
-                        border: '1px solid rgba(0,255,255,0.1)',
-                        padding: '3px 8px',
-                        borderRadius: 6,
-                        fontSize: 12,
-                        color: '#aaf'
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+  {/* Status Badge */}
+  {p.status && (
+    <div
+      style={{
+        display: 'inline-block',
+        background: 'rgba(34,197,94,0.15)',
+        color: '#22c55e',
+        border: '1px solid rgba(34,197,94,0.4)',
+        padding: '4px 10px',
+        borderRadius: 20,
+        fontSize: 12,
+        fontWeight: 500,
+        marginBottom: 8
+      }}
+    >
+      {p.status}
+    </div>
+  )}
+
+  <h3 style={{ fontSize: 18, color: '#0ea5e9', marginBottom: 6 }}>
+    {p.title}
+  </h3>
+
+  <p style={{ fontSize: 14, color: '#bbb', marginBottom: 8, lineHeight: 1.6 }}>
+    {p.desc}
+  </p>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
                   <motion.a
