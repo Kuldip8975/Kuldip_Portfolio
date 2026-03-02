@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import "../CSS/Home.css"
 import '../index.css'
-
-
+// 🔥 Firebase
+import { db } from '../firebase'
+import { ref, onValue, runTransaction } from 'firebase/database'
 // 🖼️ Import Assets
 import photo from '../../public/photo.jpg'
 import githubLogo from '../../public/github.png'
@@ -14,13 +15,23 @@ import instagramLogo from '../../public/insta.png'
 import facebookLogo from '../../public/facebook.png'
 
 export default function Home() {
+  const [visitorCount, setVisitorCount] = useState(null)
+
+  useEffect(() => {
+    const visitorRef = ref(db, 'visitorCount')
+    runTransaction(visitorRef, (current) => (current || 0) + 1)
+    const unsubscribe = onValue(visitorRef, (snapshot) => {
+      setVisitorCount(snapshot.val())
+    })
+    return () => unsubscribe()
+  }, [])
+
   const professions = [
     'AIML Student',
     'Aspiring Data Scientist',
     'Machine Learning',
     'AI Projects',
     'Developer'
-
   ]
 
   const quickLinks = [
@@ -39,6 +50,10 @@ export default function Home() {
         {`
           @keyframes typing { from { width: 0; } to { width: 100%; } }
           @keyframes blink { 50% { border-color: transparent; } }
+          @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+          }
         `}
       </style>
 
@@ -80,7 +95,7 @@ export default function Home() {
           className="home-info"
         >
           <h1 className="home-title">
-            Hi, I’m{' '}
+            Hi, I'm{' '}
             <motion.span
               animate={{ backgroundPositionX: ['0%', '200%'] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
@@ -93,14 +108,17 @@ export default function Home() {
           {/* Typing Animated Text */}
           <p className="typing-effect">
             AIML Student | Tech Student | Aspiring Data Scientist
-
-
           </p>
 
           {/* Profession Tags */}
           <motion.div className="profession-tags">
             {professions.map((role, i) => (
-              <motion.div key={i} whileHover={{ scale: 1.05, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))' }} transition={{ type: 'spring', stiffness: 200 }} className="profession-tag">
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))' }}
+                transition={{ type: 'spring', stiffness: 200 }}
+                className="profession-tag"
+              >
                 {role}
               </motion.div>
             ))}
@@ -113,7 +131,12 @@ export default function Home() {
               { label: '💼 Focus Areas', value: 'AI/ML, Data Science, Projects, Problem Solving' },
               { label: '📧 Contact', value: 'kuldipmahale2001@gmail.com' },
             ].map((info, i) => (
-              <motion.div key={i} whileHover={{ y: -4, scale: 1.05 }} transition={{ type: 'spring', stiffness: 250 }} className="info-card">
+              <motion.div
+                key={i}
+                whileHover={{ y: -4, scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 250 }}
+                className="info-card"
+              >
                 <strong>{info.label}</strong>
                 <p>{info.value}</p>
               </motion.div>
@@ -145,6 +168,66 @@ export default function Home() {
             </motion.a>
           ))}
         </div>
+      </motion.div>
+
+      {/* 🔥 Visitor Counter — Bottom */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          margin: '32px 0 16px',
+        }}
+      >
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.12))',
+            border: '1px solid rgba(139,92,246,0.35)',
+            borderRadius: '50px',
+            padding: '12px 28px',
+            backdropFilter: 'blur(12px)',
+            boxShadow: '0 4px 24px rgba(139,92,246,0.15)',
+          }}
+        >
+          {/* Live pulse dot */}
+          <div style={{ position: 'relative', width: 12, height: 12 }}>
+            <span style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: '#4ade80',
+              animation: 'pulse-ring 1.5s ease-out infinite',
+            }} />
+            <span style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: '#4ade80',
+            }} />
+          </div>
+
+          <span style={{ fontSize: '14px', color: '#c4b5fd', fontWeight: 500, letterSpacing: '0.3px' }}>
+            👁️ Profile Visits:
+          </span>
+
+          <motion.span
+            key={visitorCount}
+            initial={{ scale: 1.4, color: '#ffffff' }}
+            animate={{ scale: 1, color: '#a78bfa' }}
+            transition={{ duration: 0.4 }}
+            style={{ fontSize: '20px', fontWeight: 700, color: '#a78bfa', minWidth: '40px', textAlign: 'center' }}
+          >
+            {visitorCount !== null ? visitorCount.toLocaleString() : '—'}
+          </motion.span>
+
+          <span style={{ fontSize: '12px', opacity: 0.5, color: '#c4b5fd' }}>LIVE</span>
+        </motion.div>
       </motion.div>
 
     </section>
