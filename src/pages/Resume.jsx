@@ -221,51 +221,59 @@ export default function Resume() {
         </motion.div>
 
         {/* PDF Viewer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          style={{
-            marginTop: 50,
-            borderRadius: 12,
-            overflow: "hidden",
-            border: "1px solid rgba(255,255,255,0.1)",
-          }}
-        >
-          <iframe
-            src="/kuldip_mahale.pdf"
-            title="Kuldip Mahale Resume"
-            style={{
-              width: "100%",
-              height: "650px",
-              border: "none",
-              background: "#111",
-            }}
-          />
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1.2 }}
+  style={{
+    marginTop: 50,
+    borderRadius: 12,
+    overflow: "hidden",
+    border: "1px solid rgba(255,255,255,0.1)",
+    background: "#111"
+  }}
+>
+  <object
+    data="/kuldip_mahale.pdf"
+    type="application/pdf"
+    width="100%"
+    height="650px"
+  >
+    <p style={{ padding: "20px", color: "#ccc" }}>
+      PDF preview not supported.
+      <a
+        href="/kuldip_mahale.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "#00b4ff", marginLeft: 6 }}
+      >
+        Click here to download.
+      </a>
+    </p>
+  </object>
+</motion.div>
 
-        {/* Download Button */}
-        <motion.a
-          href="/kuldip_mahale.pdf"
-          download
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            display: "inline-block",
-            marginTop: 20,
-            background: "#00b4ff",
-            color: "#fff",
-            padding: "10px 22px",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontWeight: 500,
-            letterSpacing: 0.3,
-          }}
-        >
-          ⬇️ Download Resume
-        </motion.a>
-
-
+{/* Download Button */}
+<motion.a
+  href="/kuldip_mahale.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  style={{
+    display: "inline-block",
+    marginTop: 20,
+    background: "linear-gradient(90deg,#00b4ff,#00ffe0)",
+    color: "#000",
+    padding: "10px 22px",
+    borderRadius: 8,
+    textDecoration: "none",
+    fontWeight: 600,
+    letterSpacing: 0.3,
+  }}
+>
+  ⬇️ Download Resume
+</motion.a>
       </motion.div>
     </section>
   );

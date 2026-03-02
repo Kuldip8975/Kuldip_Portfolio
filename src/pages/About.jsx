@@ -131,7 +131,7 @@ that combine analytics, visualization, and real-world problem solving.
                     fontSize: "1.25rem",
                   }}
                 >
-                  B.Tech in Artificial Intelligence and Data Science
+                  B.Tech in Artificial Intelligence and Machine Learning
                 </h4>
                 <p
                   style={{
