@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
-
 import githubLogo from "../../public/github.png";
 import linkedinLogo from "../../public/linkedin.png";
 import gmailLogo from "../../public/gmail.png";
 import whatsappLogo from "../../public/whatsapp.png";
 import instagramLogo from "../../public/insta.png";
 import facebookLogo from "../../public/facebook.png";
-
 import "../CSS/Contact.css";
 import "../index.css";
 
@@ -19,8 +17,8 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-
   const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,36 +34,53 @@ export default function Contact() {
 
     const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     const isEmail = emailPattern.test(form.contact);
+    const isPhone = !isNaN(form.contact) && form.contact.trim().length >= 7;
 
-    if (!isEmail && isNaN(form.contact)) {
+    if (!isEmail && !isPhone) {
       setStatus("⚠️ Please enter a valid email or phone number.");
       return;
     }
 
+    setIsSending(true);
     setStatus("Sending...");
 
+    const templateParams = {
+      from_name: form.name,
+      contact_info: form.contact,
+      subject: form.subject,
+      message: form.message,
+    };
+
+    // ✅ Send to OWNER first
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          contact_info: form.contact,
-          subject: form.subject,
-          message: form.message,
-        },
+        templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setForm({ name: "", contact: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("❌ Failed to send. Try again later.");
+      .then(() => {
+        // ✅ If user gave email, send thank you to them
+        if (isEmail) {
+          return emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_THANKYOU_TEMPLATE_ID,
+            templateParams,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          );
         }
-      );
+        return Promise.resolve(); // phone number — skip thank you email
+      })
+      .then(() => {
+        setStatus("✅ Message sent! Check your email for a confirmation.");
+        setForm({ name: "", contact: "", subject: "", message: "" });
+        setIsSending(false);
+      })
+      .catch((error) => {
+        console.error("FAILED...", error);
+        setStatus("❌ Failed to send. Try again later.");
+        setIsSending(false);
+      });
   };
 
   const quickLinks = [
@@ -85,7 +100,7 @@ export default function Contact() {
         transition={{ duration: 0.7 }}
         className="contact-title"
       >
-        Let’s Connect & Collaborate 🤝
+        Let's Connect & Collaborate 🤝
       </motion.h1>
 
       <motion.p
@@ -94,7 +109,7 @@ export default function Contact() {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="contact-subtitle"
       >
-        Whether it’s a new project, a collaboration, or just to say hi — I’d love to hear from you!
+        Whether it's a new project, a collaboration, or just to say hi — I'd love to hear from you!
       </motion.p>
 
       {/* Quick Social Links */}
@@ -132,14 +147,48 @@ export default function Contact() {
         transition={{ delay: 0.4, duration: 0.9 }}
         className="contact-form"
       >
-        <input type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
-        <input type="text" name="contact" placeholder="Your Email or Phone" value={form.contact} onChange={handleChange} required />
-        <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="contact"
+          placeholder="Your Email or Phone"
+          value={form.contact}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={form.subject}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message..."
+          value={form.message}
+          onChange={handleChange}
+          rows="5"
+          required
+        />
 
-        <textarea name="message" placeholder="Your Message..." value={form.message} onChange={handleChange} rows="5" required />
-
-        <motion.button type="submit" className="contact-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          🚀 Send Message
+        <motion.button
+          type="submit"
+          className="contact-btn"
+          whileHover={{ scale: isSending ? 1 : 1.05 }}
+          whileTap={{ scale: isSending ? 1 : 0.95 }}
+          disabled={isSending}
+          style={{ opacity: isSending ? 0.7 : 1, cursor: isSending ? 'not-allowed' : 'pointer' }}
+        >
+          {isSending ? "⏳ Sending..." : "🚀 Send Message"}
         </motion.button>
 
         {status && (
