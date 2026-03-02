@@ -103,7 +103,7 @@ export default function Resume() {
           </h4>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
             <li>
-              <strong>B.Tech in Artificial Intelligence & Machine Learning</strong> — S.C.E.T
+              <strong>B.Tech in Artificial Intelligence & Machine Learning</strong> — 
               (RCPIT Shirpur), 2024–2027 <br />
               <span style={{ color: "#aaa" }}>GPA: 8.27</span>
             </li>
@@ -233,7 +233,7 @@ export default function Resume() {
           }}
         >
           <iframe
-            src="\dist\resume.pdf"
+            src="/kuldip_mahale.pdf"
             title="Kuldip Mahale Resume"
             style={{
               width: "100%",
@@ -246,7 +246,7 @@ export default function Resume() {
 
         {/* Download Button */}
         <motion.a
-          href="/resume.pdf"
+          href="/kuldip_mahale.pdf"
           download
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

@@ -36,7 +36,7 @@ const PROJECTS = [
     desc: 'EnviroScan is a sophisticated intelligent pollution monitoring system designed to revolutionize how environmental agencies and urban planners understand and respond to air pollution. Unlike traditional pollution monitoring systems that simply measure pollutant levels, EnviroScan goes several steps further by identifying the specific sources of air pollution with remarkable accuracy.',
     ss: '/ISL.png',
     tech: ['Python', 'OPENAPI', 'Machine Learning',],
-    live: '#',
+    live: 'https://enviroscanai.streamlit.app/',
     code: 'https://github.com/EnviroScan-INF-SB/Kuldip_mahale_EnviroScan'
   },
   {
@@ -52,7 +52,7 @@ const PROJECTS = [
   desc: 'This project involves creating an interactive sales dashboard using Microsoft Excel. The dashboard provides insights into sales performance, trends, and key metrics through the use of pivot tables, charts, and data visualization techniques. It allows users to analyze sales data effectively and make informed business decisions.',
   ss: '/portfolio1.jpg',
   tech: ['Microsoft Excel', 'Data Analysis', 'Pivot Tables', 'Pivot Charts', 'Interactive Slicers', 'Dashboard Visualization'],
-  live: '#',
+  live: 'https://github.com/Kuldip8975/Excel-Sales-Dashboard',
   code: 'https://github.com/Kuldip8975/Excel-Sales-Dashboard'
   },
    {
@@ -60,7 +60,7 @@ const PROJECTS = [
     desc: 'A comprehensive web-based medical appointment system connecting patients with healthcare providers. The system facilitates appointment booking, lab test scheduling, ambulance services, and provides complete management dashboards for doctors and patients.',
     ss: '/mamo.png',
     tech: ['PHP', 'EmailJS', 'HTML', 'CSS','MySQL','JavaScript','PHPMYADMIN'],
-    live: '#',
+    live: 'https://techcare.kesug.com/?i=1',
     code: 'https://github.com/Kuldip8975/TechCare/tree/main'
   },
   // {
