@@ -56,15 +56,21 @@ const AboutMe = () => {
             marginBottom: "1rem",
           }}
         >
-          Hi, I’m <strong>Kuldip Mahale</strong> — an <strong>AIML student</strong> and 
-<strong>aspiring Data Scientist</strong> passionate about 
-<strong>data analysis, machine learning, and AI-driven applications</strong>. 
-I enjoy exploring data, building intelligent systems, and creating projects 
-that combine analytics, visualization, and real-world problem solving.
-
+          Hi, I'm <strong>Kuldip Mahale</strong> — an{" "}
+          <strong>AI/ML Engineer</strong> with hands-on experience building
+          machine learning pipelines, AI-driven backend systems, and
+          intelligent web applications. I enjoy exploring data, building
+          intelligent systems, and creating projects that combine analytics,
+          visualization, and real-world problem solving.
         </p>
 
-        <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)" }}>
+        <p
+          style={{
+            fontSize: "1.1rem",
+            color: "rgba(255,255,255,0.8)",
+            marginBottom: "1rem",
+          }}
+        >
           Beyond code, I enjoy exploring design, experimenting with motion and
           interaction, and finding ways to blend{" "}
           <strong>artistic creativity</strong> with{" "}
@@ -72,9 +78,13 @@ that combine analytics, visualization, and real-world problem solving.
           that not only perform — but also inspire.
         </p>
 
-        <p>
-            3rd-year B.Tech AI Engineering student with hands-on experience in ML & DL Projects. Proficient in Python, scikitlearn,pytorch,tensorflow and data preprocessing. Seeking internship opportunities to apply skills and contribute to
-            impactful AI solutions.
+        <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)" }}>
+          Currently pursuing a B.Tech in Artificial Intelligence & Machine
+          Learning, with hands-on internship experience spanning AI
+          cybersecurity engineering, applied ML pipelines, and full-stack
+          development. Skilled in Python, Generative AI, backend engineering,
+          and scalable software development — always looking for the next
+          opportunity to build impactful, real-world AI solutions.
         </p>
 
         {/* --- Education Section --- */}
@@ -139,13 +149,13 @@ that combine analytics, visualization, and real-world problem solving.
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>RCPIT (R.C.Patel Institute Technology,Shirpur)</strong> — Shirpur,
-                  Maharashtra
+                  <strong>RCPIT (R.C. Patel Institute of Technology, Shirpur)</strong>{" "}
+                  — Shirpur, Maharashtra
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  3rd Year (Pursuing) | GPA: 8.27
+                  Pursuing | CGPA: 8.24
                 </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>2022 – 2027</p>
+                <p style={{ color: "rgba(255,255,255,0.7)" }}>2024 – 2027</p>
               </div>
             </motion.div>
 
@@ -176,7 +186,7 @@ that combine analytics, visualization, and real-world problem solving.
                     fontSize: "1.25rem",
                   }}
                 >
-                  Diploma In Computer Engineearing (Diploma Marks)
+                  Diploma in Computer Engineering
                 </h4>
                 <p
                   style={{
@@ -184,13 +194,12 @@ that combine analytics, visualization, and real-world problem solving.
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>R.C.Patel Polytechnic</strong> — Shirpur
-                  Maharashtra
+                  <strong>R.C. Patel Polytechnic</strong> — Shirpur, Maharashtra
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  MSBTE | Percentage: 84.06%
+                  MSBTE | Percentage: 86.71%
                 </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>Completed in 2023</p>
+                <p style={{ color: "rgba(255,255,255,0.7)" }}>2021 – 2023</p>
               </div>
             </motion.div>
 
@@ -229,8 +238,8 @@ that combine analytics, visualization, and real-world problem solving.
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>Ekatmata Madymik Vidyalay High School</strong> — Shahapur,
-                  Maharashtra
+                  <strong>Ekatmata Madymik Vidyalay High School</strong> —
+                  Shahapur, Maharashtra
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
                   Maharashtra Secondary Board | Percentage: 84%
