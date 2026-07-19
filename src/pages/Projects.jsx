@@ -3,6 +3,14 @@ import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
+  {
+    title: '🤖 Naukri CRM - AI-Powered HCP Interaction Tracker',
+    desc: 'An AI-first CRM built for life sciences field representatives to log, track, and manage healthcare professional (HCP) interactions. Reps can log visits via a structured form or natural language chat — a LangGraph-powered AI agent classifies intent, extracts details, and auto-creates interaction records in real time. Includes HCP management, follow-up scheduling, and analytics dashboards.',
+    ss: '/naukri-crm.png',
+    tech: ['React', 'Redux', 'Python', 'FastAPI', 'LangGraph', 'Groq', 'PostgreSQL', 'SQLAlchemy', 'JWT'],
+    live: 'https://github.com/Kuldip8975/naukri-crm-hcp',
+    code: 'https://github.com/Kuldip8975/naukri-crm-hcp'
+  },
  {
   title: '🤖 AgrisetAI – AI-Powered Smart Agriculture Ecosystem',
   duration: '2025 – Present',
@@ -60,7 +68,7 @@ const PROJECTS = [
     desc: 'A comprehensive web-based medical appointment system connecting patients with healthcare providers. The system facilitates appointment booking, lab test scheduling, ambulance services, and provides complete management dashboards for doctors and patients.',
     ss: '/mamo.png',
     tech: ['PHP', 'EmailJS', 'HTML', 'CSS','MySQL','JavaScript','PHPMYADMIN'],
-    live: 'https://techcare.kesug.com/?i=1',
+    live: 'https://github.com/Kuldip8975/TechCare',
     code: 'https://github.com/Kuldip8975/TechCare/tree/main'
   },
   // {

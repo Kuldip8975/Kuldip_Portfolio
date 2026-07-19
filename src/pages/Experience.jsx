@@ -3,14 +3,28 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
+    date: "May 2026 – Aug 2026",
+    role: "AI & Cybersecurity Engineering Intern",
+    company: "Astraeus Next Gen Pvt. Ltd. — Remote",
+    icon: "🛡️",
+    points: [
+      "Contributed to the design, modification, and execution of autonomous AI systems as part of a cross-functional engineering team.",
+      "Assisted in cybersecurity engineering tasks including system security, threat analysis, and spyware detection.",
+      "Participated in full-stack development, building and integrating secure web-based systems for AI and security-focused applications.",
+      "Supported testing, debugging, and performance optimization of AI-driven and security-focused applications.",
+      "Collaborated with cross-functional teams to deliver scalable, secure system integration.",
+      "Documented technical workflows and system architecture to support development and deployment processes."
+    ]
+  },
+  {
     date: "Sept 2025 – Nov 2025",
-    role: "AIML Intern",
+    role: "AI/ML Intern",
     company: "Infosys Springboard",
     icon: "🤖",
     points: [
-      "Developed EnviroScan – AI-powered pollution source identifier using geospatial analytics.",
-      "Built ML models leveraging sensor data & weather patterns for pollution classification.",
-      "Implemented heatmaps, hotspot detection & real-time environmental risk visualization."
+      "Built an end-to-end pollution classification system with a 10-member Agile cohort, training XGBoost and Random Forest models to 90% F1-score with GridSearchCV tuning.",
+      "Developed full ML pipeline — live API ingestion, feature engineering, model training, and Streamlit deployment.",
+      "Collaborated in Agile sprints, code reviews, and model evaluation to deliver an end-to-end ML solution."
     ]
   },
   {
@@ -19,9 +33,8 @@ const experiences = [
     company: "anAccord Web World Pvt. Ltd.",
     icon: "💻",
     points: [
-      "Designed and developed responsive UI using HTML, CSS, JavaScript & React.",
-      "Collaborated on frontend modules and REST API integration.",
-      "Followed modern workflows and component-based architecture."
+      "Developed responsive UI components using HTML5, CSS3, JavaScript, and React.js for production web applications.",
+      "Integrated REST APIs to connect frontend modules with backend services, streamlining data flow across the application."
     ]
   }
 ];

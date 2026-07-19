@@ -12,6 +12,14 @@ const CERTS = {
       link: "/certs/flipkart.jpg",
     },
     {
+      title: "Infosys Springboard-AIML Intern",
+      org: "Infosys Springboard",
+      date: "2025",
+      img: "/certs/infosys.jpg",
+      link: "/certs/infosys.jpg",
+      
+    },
+    {
       title: "Data Analytics & Visualization Job",
       org: "Accenture",
       date: "2024",

@@ -17,25 +17,32 @@ const SKILLS = [
   { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
   { name: "PyTorch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
   { name: "OpenCV", logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg" },
-  { name: "Microsoft Excel", logo: "https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" }
-
+  { name: "Microsoft Excel", logo: "https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" },
+  { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  // { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  // { name: "SQLAlchemy", logo: "https://www.svgrepo.com/show/331290/sqlalchemy.svg" },
+  { name: "LangChain", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/langchain/langchain-original.svg" },
+  // { name: "Groq", logo: "https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg" },
+  // { name: "JWT", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jwt/jwt-original.svg" }
 ];
 
 const ROWS = [
   [
-    { 
-      title: "Programming Languages", 
-      items: ["Python", "C", , "Java"] 
+    {
+      title: "Programming Languages",
+      items: ["Python", "C", , "Java"]
     },
 
-    { 
-      title: "Web Technologies", 
-      items: ["HTML", "CSS", "JavaScript", "React", "Next.js"] 
+    {
+      title: "Web Technologies",
+      items: ["HTML", "CSS", "JavaScript", "React", "Next.js"]
     },
 
-    { 
-      title: "Databases & Tools", 
-      items: ["MySQL", "MongoDB", "Supabase", "Git", "GitHub", "Excel"] 
+    {
+      title: "Databases & Tools",
+      items: ["MySQL", "MongoDB", "Supabase", "Git", "GitHub", "Excel"]
     },
 
     {
@@ -61,7 +68,7 @@ const ROWS = [
         "Excel Dashboards",
         "Visualization"
       ]
-}
+    }
 
   ],
   [
