@@ -4,13 +4,35 @@ import { Github, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
   {
-    title: '🤖 Naukri CRM - AI-Powered HCP Interaction Tracker',
-    desc: 'An AI-first CRM built for life sciences field representatives to log, track, and manage healthcare professional (HCP) interactions. Reps can log visits via a structured form or natural language chat — a LangGraph-powered AI agent classifies intent, extracts details, and auto-creates interaction records in real time. Includes HCP management, follow-up scheduling, and analytics dashboards.',
-    ss: '/naukri-crm.png',
-    tech: ['React', 'Redux', 'Python', 'FastAPI', 'LangGraph', 'Groq', 'PostgreSQL', 'SQLAlchemy', 'JWT'],
-    live: 'https://github.com/Kuldip8975/naukri-crm-hcp',
-    code: 'https://github.com/Kuldip8975/naukri-crm-hcp'
-  },
+  title: '🎓 NextPlace — Placement Management System for R.C. Patel Institute of Technology',
+  duration: '2026 – Present',
+  status: '🟡 In Development | Final Year Project',
+  desc: 'A full-stack placement management platform built for R.C. Patel Institute of Technology, with role-based access for Students, Recruiters, TPO, and Admin. Students register, verify via OTP, complete profiles, and apply to placement drives; Recruiters post drives and review applicants; TPO manages student data, uploads bulk records, tracks placement analytics, and maintains a company-wise interview question bank. Includes a complete recruitment pipeline (applied → shortlisted → interview → selected/rejected) with real-time notifications via Socket.IO. Being developed for official adoption by the institute\'s Training & Placement Office.',
+  ss: '/nextplace.png',
+  tech: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'Socket.IO', 'JWT', 'OTP Verification'],
+  live: 'https://rcpitcell.pages.dev/login',
+  code: 'https://github.com/mihirtathe21-ship-it/rcpitcell'
+},
+ {
+  title: '🤖 HCPilot AI — AI-Powered CRM for Pharma Sales Reps',
+  duration: '2026',
+  status: '🟢 Production Live | Actively Maintained',
+  desc: 'A multi-agent LLM system (LangGraph, 7 tools) for pharma sales reps to log HCP interactions via natural language chat — auto-classifies intent, extracts details, and creates records in real time. Features a RAG pipeline with per-user retrieval scoping, a rule-based priority-ranking engine with LLM-generated rationale, route-optimization (OSRM, 2-opt), and a standalone MCP server exposing CRM actions as JWT-authenticated tools.',
+  ss: '/naukri-crm.jpg',
+  tech: ['React', 'Redux', 'FastAPI', 'PostgreSQL', 'LangGraph', 'Groq LLM', 'Docker', 'AWS', 'MCP'],
+  live: 'https://hcpilot-frontend.pages.dev/',
+  code: 'https://github.com/Kuldip8975/naukri-crm-hcp'
+},
+{
+  title: '🔎 QNIX – Enterprise AI Research & Discovery Agent',
+  duration: '2026',
+  status: '🟢 Production Live | Actively Maintained',
+  desc: 'An enterprise AI research agent automating research from source collection to evidence-grounded conclusions via a multi-stage pipeline. Implements RAG with FAISS and Gemini Embedding 001 for semantic retrieval, with FastAPI REST APIs for source management, research jobs, and workspace-level data isolation. Integrates Groq GPT-OSS-20B for evidence-based analysis, finding extraction, and contradiction detection with source-cited conclusions.',
+  ss: '/qnix.jpg',
+  tech: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'FAISS', 'RAG', 'Gemini Embeddings', 'Groq', 'AWS', 'Cloudflare'],
+  live: 'https://f8043484.qnix.pages.dev/',
+  code: 'https://github.com/Kuldip8975/Qnix'
+},
  {
   title: '🤖 AgrisetAI – AI-Powered Smart Agriculture Ecosystem',
   duration: '2025 – Present',
