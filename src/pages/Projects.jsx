@@ -13,6 +13,16 @@ const PROJECTS = [
   live: 'https://rcpitcell.pages.dev/login',
   code: 'https://github.com/mihirtathe21-ship-it/rcpitcell'
 },
+{
+  title: '🏭 FoundryOS AI — Manufacturing Intelligence & Workflow Automation Platform',
+  duration: '2026',
+  status: '🟢 Live Demo | Completed',
+  desc: 'A role-based manufacturing intelligence platform that turns shop-floor records (downtime, output, rejects, inspections, maintenance) into live plant KPIs, AI-written shift reports, and human-approved maintenance workflows. Features a KPI dashboard (target achievement, first-pass yield, defect rates, downtime by machine), an AI shift-reporting engine that generates schema-validated reports grounded only in measured data with cited evidence, and a controlled workflow agent using allowlisted read-only tools — the AI only proposes actions, and a supervisor must approve each one. Includes four-role RBAC with per-machine scoping, hashed session tokens, account lockout, full audit trails, PDF export, and automated backend and frontend tests.',
+  ss: '/foundryos.png',
+  tech: ['React', 'Vite', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Alembic', 'Google Gemini', 'Pytest', 'Vitest', 'Docker'],
+  live: 'https://foundryos-egf.pages.dev/',
+  code: 'https://github.com/Kuldip8975/foundryos-ai'
+},
  {
   title: '🤖 HCPilot AI — AI-Powered CRM for Pharma Sales Reps',
   duration: '2026',
@@ -52,7 +62,7 @@ const PROJECTS = [
   live: 'https://shetimitra-frontend.vercel.app/',
   code: 'https://github.com/Kuldip8975/shetimitra-frontend'
 },
-  
+
   {
   title: '🧠 AbhyasX - Smart Learning Ecosystem',
   desc: 'Your ultimate learning platform designed specifically for engineering students. Access a vast collection of handwritten notes and top-quality study materials, both free and paid, to boost your academic journey.',
@@ -93,31 +103,14 @@ const PROJECTS = [
     live: 'https://github.com/Kuldip8975/TechCare',
     code: 'https://github.com/Kuldip8975/TechCare/tree/main'
   },
-  // {
-  //   title: '💬 DocuChat – Gemini AI Chatbot',
-  //   desc: 'An intelligent document interaction app powered by Gemini API that understands and answers queries from uploaded PDFs.',
-  //   ss: '/Docuchat.png',
-  //   tech: ['Gemini API', 'LangChain', 'Python', 'Streamlit'],
-  //   live: 'https://docuchat-chatbot.streamlit.app/',
-  //   code: 'https://github.com/kunj2803/Docuchat-Chatbot'
-  // },
-  // {
-  //   title: '📊 ProfileX – Data Profiler',
-  //   desc: 'Smart data profiling and preprocessing web app for CSV datasets — feature summary, missing value handling, and visualization.',
-  //   ss: '/ProfileX.png',
-  //   tech: ['Streamlit', 'Pandas', 'Plotly'],
-  //   live: 'https://profilex.streamlit.app/',
-  //   code: 'https://github.com/kunjdesai/ProfileX'
-  // },
-  // {
-  //   title: '🧬 Breast Cancer Prediction',
-  //   desc: 'ML pipeline using SVC, Random Forest, and XGBoost with SMOTE for imbalanced dataset handling and model optimization.',
-  //   ss: '/breastpred.jpg',
-  //   tech: ['scikit-learn', 'XGBoost', 'Pandas'],
-  //   live: '#',
-  //   code: 'https://github.com/kunjdesai/BreastCancerPrediction'
-  // }
 ]
+
+// Badge colour follows the status emoji: 🟢 green, 🟡 amber, 🔵 blue
+function badgeColors(status) {
+  if (status.includes('🟡')) return { bg: 'rgba(234,179,8,0.15)', fg: '#eab308', border: 'rgba(234,179,8,0.4)' }
+  if (status.includes('🔵')) return { bg: 'rgba(59,130,246,0.15)', fg: '#3b82f6', border: 'rgba(59,130,246,0.4)' }
+  return { bg: 'rgba(34,197,94,0.15)', fg: '#22c55e', border: 'rgba(34,197,94,0.4)' }
+}
 
 export default function Projects() {
   return (
@@ -142,7 +135,10 @@ export default function Projects() {
         </p>
 
         <div className="projects-grid" style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
-          {PROJECTS.map((p, idx) => (
+          {PROJECTS.map((p, idx) => {
+            const hasLive = p.live && p.live !== '#'
+            const badge = p.status ? badgeColors(p.status) : null
+            return (
             <motion.div
               key={idx}
               className="project-card"
@@ -175,32 +171,53 @@ export default function Projects() {
 
               <div style={{ marginTop: 12 }}>
 
-  {/* Status Badge */}
-  {p.status && (
-    <div
-      style={{
-        display: 'inline-block',
-        background: 'rgba(34,197,94,0.15)',
-        color: '#22c55e',
-        border: '1px solid rgba(34,197,94,0.4)',
-        padding: '4px 10px',
-        borderRadius: 20,
-        fontSize: 12,
-        fontWeight: 500,
-        marginBottom: 8
-      }}
-    >
-      {p.status}
-    </div>
-  )}
+                {/* Status Badge */}
+                {badge && (
+                  <div
+                    style={{
+                      display: 'inline-block',
+                      background: badge.bg,
+                      color: badge.fg,
+                      border: `1px solid ${badge.border}`,
+                      padding: '4px 10px',
+                      borderRadius: 20,
+                      fontSize: 12,
+                      fontWeight: 500,
+                      marginBottom: 8
+                    }}
+                  >
+                    {p.status}
+                  </div>
+                )}
 
-  <h3 style={{ fontSize: 18, color: '#0ea5e9', marginBottom: 6 }}>
-    {p.title}
-  </h3>
+                <h3 style={{ fontSize: 18, color: '#0ea5e9', marginBottom: 6 }}>
+                  {p.title}
+                </h3>
 
-  <p style={{ fontSize: 14, color: '#bbb', marginBottom: 8, lineHeight: 1.6 }}>
-    {p.desc}
-  </p>
+                <p style={{ fontSize: 14, color: '#bbb', marginBottom: 8, lineHeight: 1.6 }}>
+                  {p.desc}
+                </p>
+
+                {/* Tech chips */}
+                {p.tech && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
+                    {p.tech.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontSize: 11,
+                          color: '#67e8f9',
+                          background: 'rgba(6,182,212,0.08)',
+                          border: '1px solid rgba(6,182,212,0.25)',
+                          padding: '2px 8px',
+                          borderRadius: 12
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
                   <motion.a
@@ -224,30 +241,33 @@ export default function Projects() {
                   >
                     <Github size={14} /> Code
                   </motion.a>
-                  <motion.a
-                    href={p.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn"
-                    whileHover={{ scale: 1.08 }}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 5,
-                      background: 'linear-gradient(90deg, #06b6d4, #0891b2)',
-                      color: '#fff',
-                      padding: '6px 12px',
-                      borderRadius: 8,
-                      fontSize: 13,
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <ExternalLink size={14} /> Live
-                  </motion.a>
+                  {hasLive && (
+                    <motion.a
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn"
+                      whileHover={{ scale: 1.08 }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 5,
+                        background: 'linear-gradient(90deg, #06b6d4, #0891b2)',
+                        color: '#fff',
+                        padding: '6px 12px',
+                        borderRadius: 8,
+                        fontSize: 13,
+                        textDecoration: 'none'
+                      }}
+                    >
+                      <ExternalLink size={14} /> Live
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </motion.section>
